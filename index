@@ -9,26 +9,23 @@
   <!-- خطوط عربية -->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* نفس الأنماط السابقة مع بعض التحسينات */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Cairo', 'Amiri', sans-serif;
       background: #f0f7f0;
       color: #1e3c2c;
       line-height: 1.8;
     }
-
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
     }
-
-    /* رأس الصفحة */
     .header-spiritual {
       background: linear-gradient(145deg, #1b4d2e, #2a6e43);
       color: white;
@@ -43,21 +40,16 @@
       margin-bottom: 40px;
       border-bottom: 5px solid #d4af37;
     }
-
     .profile-img {
       width: 180px;
       height: 180px;
       border-radius: 15px;
       border: 5px solid #f5e7c8;
       box-shadow: 0 0 0 5px rgba(255,215,0,0.3);
-      background: #fff;
-      object-fit: cover;
       background-image: url('https://via.placeholder.com/300x300/2c5f2d/ffffff?text=%D8%A7%D9%84%D8%AD%D8%A7%D8%AC+%D8%B9%D9%84%D9%8A');
       background-size: cover;
       background-position: center top;
     }
-    /* ملاحظة: استبدل رابط الصورة أعلاه برابط صورة الحاج علي إن أردت */
-
     .header-text {
       text-align: center;
     }
@@ -76,16 +68,12 @@
       display: inline-block;
       border: 1px solid #f5d742;
     }
-
-    /* هيكل العمودين */
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 30px;
       margin-top: 20px;
     }
-
-    /* العمود الرئيسي */
     .quran-col {
       background: #ffffffde;
       backdrop-filter: blur(2px);
@@ -94,7 +82,6 @@
       box-shadow: 0 20px 35px -8px rgba(0,60,0,0.3);
       border: 1px solid #b3d9b3;
     }
-
     .quran-header {
       display: flex;
       flex-wrap: wrap;
@@ -126,8 +113,6 @@
       outline: none;
       cursor: pointer;
     }
-
-    /* أزرار السور */
     .sura-list {
       display: flex;
       flex-wrap: wrap;
@@ -155,8 +140,6 @@
       border-color: #f3c26b;
       transform: translateY(-3px);
     }
-
-    /* مشغل الصوت */
     .player-box {
       background: #1a3b28;
       padding: 25px;
@@ -186,8 +169,6 @@
       display: inline-block;
       margin-top: 10px;
     }
-
-    /* نص السورة */
     .sura-text-box {
       margin-top: 30px;
       background: #f1f9ea;
@@ -205,8 +186,6 @@
       line-height: 2;
       color: #153d23;
     }
-
-    /* الشريط الجانبي */
     .sidebar {
       background: #f4fef0;
       border-radius: 40px 10px 40px 10px;
@@ -215,7 +194,6 @@
       border: 1px solid #b6d9b6;
       align-self: start;
     }
-
     .section-title {
       font-size: 2rem;
       font-weight: 700;
@@ -227,7 +205,6 @@
     .section-title:first-of-type {
       margin-top: 10px;
     }
-
     .adhkar-card {
       background: white;
       border-radius: 30px 8px 30px 8px;
@@ -255,7 +232,6 @@
       padding-top: 8px;
       text-align: left;
     }
-
     .dua-item {
       background: #fef7e7;
       padding: 15px;
@@ -264,7 +240,6 @@
       font-size: 1.3rem;
       border-right: 6px solid #bb8f4f;
     }
-
     footer {
       text-align: center;
       margin-top: 60px;
@@ -277,7 +252,6 @@
     footer i {
       color: #f3c36b;
     }
-
     @media (max-width: 900px) {
       .content-grid { grid-template-columns: 1fr; }
       .header-text h1 { font-size: 2.2rem; }
@@ -308,11 +282,12 @@
         <h3><i class="fas fa-quran" style="margin-left: 10px; color: #2a9d8f;"></i> القران الكريم</h3>
         <div class="qari-selector">
           <select id="qariSelect">
-            <option value="abdulbasit">عبدالباسط عبدالصمد (مجود)</option>
-            <option value="husary">الحصري (معلم)</option>
-            <option value="minshawi">المنشاوي (مرتل)</option>
-            <option value="maher" selected>ماهر المعيقلي</option>
-            <option value="afasy">مشاري العفاسي</option>
+            <!-- تم تحديث القيم لتتوافق مع everyayah.com -->
+            <option value="AbdulSamad_64kbps">عبدالباسط عبدالصمد (مجود)</option>
+            <option value="Husary_64kbps">الحصري (معلم)</option>
+            <option value="Minshawi_64kbps">المنشاوي (مرتل)</option>
+            <option value="MaherAlMuaiqly_64kbps">ماهر المعيقلي</option>
+            <option value="Alafasy_64kbps">مشاري العفاسي</option>
           </select>
         </div>
       </div>
@@ -407,26 +382,18 @@
     });
   }
 
-  // تحديث مصدر الصوت بناءً على القارئ ورقم السورة
+  // تحديث مصدر الصوت باستخدام everyayah.com
   function updateAudioSource() {
-    const qari = qariSelect.value;
-    const suraNumber = currentSura.toString().padStart(3, '0'); // 001, 036...
-    let baseUrl = '';
-    switch (qari) {
-      case 'abdulbasit': baseUrl = 'https://server8.mp3quran.net/abdulbasit/'; break;
-      case 'husary': baseUrl = 'https://server8.mp3quran.net/husary/'; break;
-      case 'minshawi': baseUrl = 'https://server8.mp3quran.net/minshawi/'; break;
-      case 'maher': baseUrl = 'https://server8.mp3quran.net/maher/'; break;
-      case 'afasy': baseUrl = 'https://server8.mp3quran.net/afasy/'; break;
-      default: baseUrl = 'https://server8.mp3quran.net/maher/';
-    }
-    const audioUrl = baseUrl + suraNumber + '.mp3';
+    const qari = qariSelect.value; // مثلاً AbdulSamad_64kbps
+    const suraNumber = currentSura.toString().padStart(3, '0'); // 001
+    // كل سورة تبدأ من الآية 001
+    const audioUrl = `https://everyayah.com/data/${qari}/${suraNumber}001.mp3`;
     audioPlayer.src = audioUrl;
     audioPlayer.load();
     trackInfo.innerHTML = `السورة: ${currentSuraName} | القارئ: ${qariSelect.selectedOptions[0].text}`;
   }
 
-  // عرض نص السورة (بسيط للتوضيح)
+  // عرض نص السورة
   function updateSuraDisplay(suraId) {
     let text = '';
     if (suraId === 1) {
