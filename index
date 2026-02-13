@@ -4,28 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الزغول - قرآن وأدعية</title>
-  <!-- Font Awesome -->
+  <!-- Font Awesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- خطوط عربية -->
+  <!-- خط عربي جميل -->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* نفس الأنماط السابقة مع بعض التحسينات */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Cairo', 'Amiri', sans-serif;
-      background: #f0f7f0;
+      background: #f0f7f0;  /* خلفية خضراء ناعمة */
       color: #1e3c2c;
       line-height: 1.8;
     }
+
+    /* الحاوية الرئيسية */
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
     }
+
+    /* رأس الصفحة مع صورة الفقيه */
     .header-spiritual {
       background: linear-gradient(145deg, #1b4d2e, #2a6e43);
       color: white;
@@ -40,16 +44,20 @@
       margin-bottom: 40px;
       border-bottom: 5px solid #d4af37;
     }
+
     .profile-img {
       width: 180px;
       height: 180px;
       border-radius: 15px;
       border: 5px solid #f5e7c8;
       box-shadow: 0 0 0 5px rgba(255,215,0,0.3);
-      background-image: url('https://via.placeholder.com/300x300/2c5f2d/ffffff?text=%D8%A7%D9%84%D8%AD%D8%A7%D8%AC+%D8%B9%D9%84%D9%8A');
+      background: #fff;
+      object-fit: cover;
+      background-image: url('https://z-cdn-media.chatglm.cn/files/0238719a-9316-40aa-a639-62e27ed35216.jpg?auth_key=1871009023-33f24e63ac4946f49e8b1fda653acaee-0-70af7c9d58f61f8d19293af2f3dc6752');
       background-size: cover;
       background-position: center top;
     }
+
     .header-text {
       text-align: center;
     }
@@ -68,12 +76,16 @@
       display: inline-block;
       border: 1px solid #f5d742;
     }
+
+    /* هيكل العمودين */
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 30px;
       margin-top: 20px;
     }
+
+    /* العمود الرئيسي (المصحف والتلاوات) */
     .quran-col {
       background: #ffffffde;
       backdrop-filter: blur(2px);
@@ -82,6 +94,7 @@
       box-shadow: 0 20px 35px -8px rgba(0,60,0,0.3);
       border: 1px solid #b3d9b3;
     }
+
     .quran-header {
       display: flex;
       flex-wrap: wrap;
@@ -113,6 +126,8 @@
       outline: none;
       cursor: pointer;
     }
+
+    /* قائمة السور */
     .sura-list {
       display: flex;
       flex-wrap: wrap;
@@ -140,6 +155,8 @@
       border-color: #f3c26b;
       transform: translateY(-3px);
     }
+
+    /* مشغل الفيديو */
     .player-box {
       background: #1a3b28;
       padding: 25px;
@@ -154,11 +171,12 @@
       margin-bottom: 15px;
       color: #ffde8a;
     }
-    audio {
+    #videoPlayer {
       width: 100%;
       max-width: 600px;
       margin: 10px auto;
-      border-radius: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
       outline: none;
     }
     .track-info {
@@ -168,24 +186,11 @@
       border-radius: 40px;
       display: inline-block;
       margin-top: 10px;
+      min-height: 40px;
+      line-height: 1.8;
     }
-    .sura-text-box {
-      margin-top: 30px;
-      background: #f1f9ea;
-      padding: 20px;
-      border-radius: 30px;
-    }
-    .sura-text-box h4 {
-      color: #2b6e44;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-    #suraDisplay {
-      font-family: 'Amiri', serif;
-      font-size: 1.6rem;
-      line-height: 2;
-      color: #153d23;
-    }
+
+    /* العمود الجانبي (الأذكار والأدعية) */
     .sidebar {
       background: #f4fef0;
       border-radius: 40px 10px 40px 10px;
@@ -194,6 +199,7 @@
       border: 1px solid #b6d9b6;
       align-self: start;
     }
+
     .section-title {
       font-size: 2rem;
       font-weight: 700;
@@ -205,6 +211,7 @@
     .section-title:first-of-type {
       margin-top: 10px;
     }
+
     .adhkar-card {
       background: white;
       border-radius: 30px 8px 30px 8px;
@@ -232,6 +239,7 @@
       padding-top: 8px;
       text-align: left;
     }
+
     .dua-item {
       background: #fef7e7;
       padding: 15px;
@@ -240,6 +248,7 @@
       font-size: 1.3rem;
       border-right: 6px solid #bb8f4f;
     }
+
     footer {
       text-align: center;
       margin-top: 60px;
@@ -252,16 +261,27 @@
     footer i {
       color: #f3c36b;
     }
+
+    /* تجاوب */
     @media (max-width: 900px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .header-text h1 { font-size: 2.2rem; }
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-text h1 {
+        font-size: 2.2rem;
+      }
     }
     @media (max-width: 600px) {
-      .sura-btn { min-width: 70px; padding: 8px 12px; font-size: 1rem; }
+      .sura-btn {
+        min-width: 70px;
+        padding: 8px 12px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
 <div class="container">
   <!-- رأس الصفحة بصورة الحاج علي -->
   <div class="header-spiritual">
@@ -274,57 +294,81 @@
     </div>
   </div>
 
-  <!-- المحتوى الرئيسي -->
+  <!-- المحتوى الرئيسي: عمودان -->
   <div class="content-grid">
-    <!-- العمود الأيمن للقرآن -->
+    <!-- العمود الأيمن (الأكبر) للقرآن والمشغل -->
     <div class="quran-col">
       <div class="quran-header">
         <h3><i class="fas fa-quran" style="margin-left: 10px; color: #2a9d8f;"></i> القران الكريم</h3>
         <div class="qari-selector">
           <select id="qariSelect">
-            <!-- تم تحديث القيم لتتوافق مع everyayah.com -->
-            <option value="AbdulSamad_64kbps">عبدالباسط عبدالصمد (مجود)</option>
-            <option value="Husary_64kbps">الحصري (معلم)</option>
-            <option value="Minshawi_64kbps">المنشاوي (مرتل)</option>
-            <option value="MaherAlMuaiqly_64kbps">ماهر المعيقلي</option>
-            <option value="Alafasy_64kbps">مشاري العفاسي</option>
+            <!-- تم تحديث القيم لتتوافق مع الـ API الجديد -->
+            <option value="3">عبدالباسط عبدالصمد</option>
+            <option value="7">محمود خليل الحصري</option>
+            <option value="5">محمد صديق المنشاوي</option>
+            <option value="9">ماهر المعيقلي</option>
+            <option value="6">مشاري العفاسي</option>
           </select>
         </div>
       </div>
 
-      <!-- أزرار السور -->
-      <div class="sura-list" id="suraList"></div>
-
-      <!-- مشغل الصوت -->
-      <div class="player-box">
-        <h4><i class="fas fa-headphones-alt"></i> التلاوة المباركة</h4>
-        <audio id="audioPlayer" controls>
-          <source src="" type="audio/mpeg">
-          متصفحك لا يدعم تشغيل الصوت.
-        </audio>
-        <div class="track-info" id="trackInfo">اختر سورة وقارئ</div>
+      <!-- قائمة السور (أشهر السور) -->
+      <div class="sura-list" id="suraList">
+        <!-- ستنشئها js لاحقاً -->
       </div>
 
-      <!-- نص السورة -->
-      <div class="sura-text-box">
-        <h4><i class="fas fa-book-open"></i> آيات للقراءة</h4>
-        <div id="suraDisplay"></div>
+      <!-- مشغل الفيديو -->
+      <div class="player-box">
+        <h4><i class="fas fa-play-circle"></i> التلاوة المباركة</h4>
+        <video id="videoPlayer" controls poster="https://images.unsplash.com/photo-1598760536001-7b5b31e4a0d8?q=80&w=1974&auto=format&fit=crop" width="100%">
+          <!-- سيتم تحديث المصدر بواسطة JavaScript -->
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+        <div class="track-info" id="trackInfo">اختر سورة وقارئ للبدء</div>
+      </div>
+
+      <!-- إمكانية قراءة الآيات (نص السورة) -->
+      <div style="margin-top: 30px; background: #f1f9ea; padding: 20px; border-radius: 30px;">
+        <h4 style="color: #2b6e44; font-size: 1.8rem;"><i class="fas fa-book-open"></i> آيات للقراءة</h4>
+        <div id="suraDisplay" style="font-family: 'Amiri'; font-size: 1.6rem; line-height: 2; color: #153d23;">
+          <p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ<br>الرَّحْمَٰنِ الرَّحِيمِ<br>مَالِكِ يَوْمِ الدِّينِ<br>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ<br>صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</p>
+        </div>
       </div>
     </div>
 
     <!-- العمود الأيسر (الأذكار والأدعية) -->
     <div class="sidebar">
       <h3 class="section-title"><i class="fas fa-praying-hands"></i> أذكار</h3>
-      <div class="adhkar-card"><p>﴿ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ﴾</p><p class="count">آية الكرسي</p></div>
-      <div class="adhkar-card"><p>سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ</p><p class="count">٣ مرات</p></div>
-      <div class="adhkar-card"><p>أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p><p class="count">دعاء التحصين</p></div>
-      <div class="adhkar-card"><p>اللَّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ، وَالْمُسْلِمِينَ وَالْمُسْلِمَاتِ</p><p class="count">للموتى</p></div>
+      <div class="adhkar-card">
+        <p>﴿ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ﴾</p>
+        <p class="count">آية الكرسي - مرة واحدة</p>
+      </div>
+      <div class="adhkar-card">
+        <p>سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ</p>
+        <p class="count">استغفار - ٣ مرات</p>
+      </div>
+      <div class="adhkar-card">
+        <p>أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p>
+        <p class="count">دعاء التحصين - صباحاً ومساءً</p>
+      </div>
+      <div class="adhkar-card">
+        <p>اللَّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ، وَالْمُسْلِمِينَ وَالْمُسْلِمَاتِ، الْأَحْيَاءِ مِنْهُمْ وَالْأَمْوَاتِ</p>
+        <p class="count">دعاء للموتى</p>
+      </div>
 
       <h3 class="section-title"><i class="fas fa-dove"></i> أدعية</h3>
-      <div class="dua-item">اللَّهُمَّ ارْحَمْ عَلِيًّا وَتَجَاوَزْ عَنْ سَيِّئَاتِهِ، وَأَدْخِلْهُ فَسِيحَ جَنَّاتِكَ.</div>
-      <div class="dua-item">اللَّهُمَّ ثَبِّتْ عِنْدَ السُّؤَالِ لِسَانَهُ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ.</div>
-      <div class="dua-item">اللَّهُمَّ اجْعَلْ قَبْرَهُ رَوْضَةً مِنْ رِيَاضِ الْجَنَّةِ.</div>
-      <div class="dua-item">رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ.</div>
+      <div class="dua-item">
+        <p>اللَّهُمَّ ارْحَمْ عَلِيًّا وَتَجَاوَزْ عَنْ سَيِّئَاتِهِ، وَأَدْخِلْهُ فَسِيحَ جَنَّاتِكَ.</p>
+      </div>
+      <div class="dua-item">
+        <p>اللَّهُمَّ ثَبِّتْ عِنْدَ السُّؤَالِ لِسَانَهُ، وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ.</p>
+      </div>
+      <div class="dua-item">
+        <p>اللَّهُمَّ اجْعَلْ قَبْرَهُ رَوْضَةً مِنْ رِيَاضِ الْجَنَّةِ.</p>
+      </div>
+      <div class="dua-item">
+        <p>رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ.</p>
+      </div>
       <div style="margin-top: 30px; background: #ebc99c; border-radius: 30px; padding: 20px; color: #263f1f; text-align: center;">
         <i class="fas fa-heart" style="color: #ac3a3a;"></i> اقرأ الفاتحة والإخلاص والمعوذتين وأهدِ ثوابها لروح الحاج علي.
       </div>
@@ -338,94 +382,118 @@
 </div>
 
 <script>
-(function() {
-  // قائمة السور (يمكنك تعديلها)
-  const surahList = [
-    { id: 1, name: 'الفاتحة' },
-    { id: 36, name: 'يس' },
-    { id: 67, name: 'تبارك' },
-    { id: 55, name: 'الرحمن' },
-    { id: 18, name: 'الكهف' },
-    { id: 112, name: 'الإخلاص' },
-    { id: 113, name: 'الفلق' },
-    { id: 114, name: 'الناس' }
-  ];
+  (function() {
+    // تعريف السور (رقم السورة واسمها)
+    const surahList = [
+      { id: 1, name: 'الفاتحة' },
+      { id: 36, name: 'يس' },
+      { id: 67, name: 'تبارك' },
+      { id: 55, name: 'الرحمن' },
+      { id: 18, name: 'الكهف' },
+      { id: 112, name: 'الإخلاص' },
+      { id: 113, name: 'الفلق' },
+      { id: 114, name: 'الناس' }
+    ];
 
-  // عناصر الصفحة
-  const suraContainer = document.getElementById('suraList');
-  const qariSelect = document.getElementById('qariSelect');
-  const audioPlayer = document.getElementById('audioPlayer');
-  const trackInfo = document.getElementById('trackInfo');
-  const suraDisplay = document.getElementById('suraDisplay');
+    // عناصر DOM
+    const suraContainer = document.getElementById('suraList');
+    const qariSelect = document.getElementById('qariSelect');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const trackInfo = document.getElementById('trackInfo');
+    const suraDisplay = document.getElementById('suraDisplay');
 
-  let currentSura = 1;
-  let currentSuraName = 'الفاتحة';
+    let currentSura = 1;       // الفاتحة افتراضياً
+    let currentSuraName = 'الفاتحة';
 
-  // دالة إنشاء أزرار السور
-  function renderSurahButtons() {
-    suraContainer.innerHTML = '';
-    surahList.forEach(s => {
-      const btn = document.createElement('button');
-      btn.className = 'sura-btn' + (s.id === currentSura ? ' active' : '');
-      btn.textContent = s.name;
-      btn.dataset.id = s.id;
-      btn.dataset.name = s.name;
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('.sura-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        currentSura = parseInt(this.dataset.id);
-        currentSuraName = this.dataset.name;
-        updateAudioSource();
-        updateSuraDisplay(currentSura);
+    // إنشاء أزرار السور
+    function renderSurahButtons() {
+      suraContainer.innerHTML = '';
+      surahList.forEach(s => {
+        const btn = document.createElement('button');
+        btn.className = 'sura-btn' + (s.id === currentSura ? ' active' : '');
+        btn.textContent = s.name;
+        btn.dataset.id = s.id;
+        btn.dataset.name = s.name;
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.sura-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentSura = parseInt(this.dataset.id);
+          currentSuraName = this.dataset.name;
+          updateVideoSource();
+          updateSuraDisplay(currentSura);
+        });
+        suraContainer.appendChild(btn);
       });
-      suraContainer.appendChild(btn);
-    });
-  }
-
-  // تحديث مصدر الصوت باستخدام everyayah.com
-  function updateAudioSource() {
-    const qari = qariSelect.value; // مثلاً AbdulSamad_64kbps
-    const suraNumber = currentSura.toString().padStart(3, '0'); // 001
-    // كل سورة تبدأ من الآية 001
-    const audioUrl = `https://everyayah.com/data/${qari}/${suraNumber}001.mp3`;
-    audioPlayer.src = audioUrl;
-    audioPlayer.load();
-    trackInfo.innerHTML = `السورة: ${currentSuraName} | القارئ: ${qariSelect.selectedOptions[0].text}`;
-  }
-
-  // عرض نص السورة
-  function updateSuraDisplay(suraId) {
-    let text = '';
-    if (suraId === 1) {
-      text = '<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ<br>الرَّحْمَٰنِ الرَّحِيمِ<br>مَالِكِ يَوْمِ الدِّينِ<br>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ<br>صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</p>';
-    } else if (suraId === 112) {
-      text = '<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>قُلْ هُوَ اللَّهُ أَحَدٌ<br>اللَّهُ الصَّمَدُ<br>لَمْ يَلِدْ وَلَمْ يُولَدْ<br>وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ</p>';
-    } else if (suraId === 36) {
-      text = '<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>يسٓ (١) وَٱلۡقُرۡءَانِ ٱلۡحَكِيمِ (٢) إِنَّكَ لَمِنَ ٱلۡمُرۡسَلِينَ (٣) عَلَىٰ صِرَٰطٖ مُّسۡتَقِيمٖ (٤) تَنزِيلَ ٱلۡعَزِيزِ ٱلرَّحِيمِ (٥) ...</p>';
-    } else {
-      text = `<p style="color: #345e34;">سورة ${currentSuraName} - استمع إلى التلاوة المباركة.</p>`;
     }
-    suraDisplay.innerHTML = text;
-  }
 
-  // أحداث
-  qariSelect.addEventListener('change', updateAudioSource);
-  audioPlayer.addEventListener('error', function() {
-    trackInfo.innerHTML = '⚠️ تعذر تحميل التلاوة. جرب قارئاً آخر أو تأكد من اتصالك.';
-  });
+    // --- تحديث مصدر الفيديو باستخدام API الجديد ---
+    async function updateVideoSource() {
+      const recitationId = qariSelect.value;
+      const suraNumber = currentSura;
+      const qariName = qariSelect.selectedOptions[0].text;
 
-  // بدء التشغيل
-  renderSurahButtons();
-  updateAudioSource();
-  updateSuraDisplay(1);
+      // عرض رسالة تحميل
+      trackInfo.innerHTML = `<i class="fas fa-spinner fa-spin"></i> جاري تحميل التلاوة...`;
 
-  // تفعيل زر الفاتحة
-  document.querySelectorAll('.sura-btn').forEach(btn => {
-    if (btn.dataset.id == 1) btn.classList.add('active');
-  });
-})();
+      // بناء رابط API
+      const apiUrl = `https://api.quran.com/api/v4/chapter_recitations/${recitationId}/${suraNumber}`;
+
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        
+        // الحصول على رابط الصوت من الاستجابة
+        const audioUrl = data.audio_file;
+
+        if (audioUrl) {
+          videoPlayer.src = audioUrl;
+          videoPlayer.load();
+          trackInfo.innerHTML = `السورة: ${currentSuraName} | القارئ: ${qariName}`;
+        } else {
+          throw new Error('لم يتم العثور على رابط الصوت.');
+        }
+
+      } catch (error) {
+        console.error("Failed to fetch audio:", error);
+        trackInfo.innerHTML = `⚠️ تعذر تحميل التلاوة. يرجى المحاولة مرة أخرى.`;
+      }
+    }
+
+    // عرض نص السورة
+    function updateSuraDisplay(suraId) {
+      let text = '';
+      if (suraId === 1) {
+        text = '<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ<br>الرَّحْمَٰنِ الرَّحِيمِ<br>مَالِكِ يَوْمِ الدِّينِ<br>إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ<br>اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ<br>صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</p>';
+      } else if (suraId === 112) {
+        text = '<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>قُلْ هُوَ اللَّهُ أَحَدٌ<br>اللَّهُ الصَّمَدُ<br>لَمْ يَلِدْ وَلَمْ يُولَدْ<br>وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ</p>';
+      } else if (suraId === 36) {
+        text = '<p>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>يسٓ (١) وَٱلۡقُرۡءَانِ ٱلۡحَكِيمِ (٢) إِنَّكَ لَمِنَ ٱلۡمُرۡسَلِينَ (٣) عَلَىٰ صِرَٰطٖ مُّسۡتَقِيمٖ (٤) تَنزِيلَ ٱلۡعَزِيزِ ٱلرَّحِيمِ (٥) ...</p><p style="color: #3f6b4b;">(اضغط على زر التشغيل لسماع التلاوة)</p>';
+      } else {
+        text = `<p style="color: #345e34;">سورة ${currentSuraName} - استمع إلى التلاوة المباركة.</p>`;
+      }
+      suraDisplay.innerHTML = text;
+    }
+
+    // عند تغيير القارئ
+    qariSelect.addEventListener('change', function() {
+      updateVideoSource();
+    });
+
+    // التهيئة عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+      renderSurahButtons();
+      // تعيين السورة الافتراضية نشطة
+      document.querySelector('.sura-btn[data-id="1"]').classList.add('active');
+      // تحميل التلاوة الأولى
+      updateVideoSource();
+      updateSuraDisplay(1);
+    });
+
+  })();
 </script>
 
-<!-- ملاحظة: الصورة الظاهرية مؤقتة، يمكنك استبدال رابط background-image بصورة الحاج علي إن أردت -->
 </body>
 </html>
