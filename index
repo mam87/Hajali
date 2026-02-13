@@ -4,21 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الزغول - قرآن وأدعية</title>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- خطوط عربية -->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Cairo', 'Amiri', sans-serif;
       background: #f0f7f0;
       color: #1e3c2c;
       line-height: 1.8;
     }
+
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
     }
+
+    /* رأس الصفحة */
     .header-spiritual {
       background: linear-gradient(145deg, #1b4d2e, #2a6e43);
       color: white;
@@ -33,18 +43,30 @@
       margin-bottom: 40px;
       border-bottom: 5px solid #d4af37;
     }
+
     .profile-img {
       width: 180px;
       height: 180px;
       border-radius: 15px;
       border: 5px solid #f5e7c8;
       box-shadow: 0 0 0 5px rgba(255,215,0,0.3);
-      background-image: url('https://z-cdn-media.chatglm.cn/files/0238719a-9316-40aa-a639-62e27ed35216.jpg?auth_key=1871009023-33f24e63ac4946f49e8b1fda653acaee-0-70af7c9d58f61f8d19293af2f3dc6752');
+      background: #fff;
+      object-fit: cover;
+      background-image: url('https://via.placeholder.com/300x300/2c5f2d/ffffff?text=%D8%A7%D9%84%D8%AD%D8%A7%D8%AC+%D8%B9%D9%84%D9%8A');
       background-size: cover;
       background-position: center top;
     }
-    .header-text { text-align: center; }
-    .header-text h1 { font-size: 3rem; font-weight: 700; margin-bottom: 15px; text-shadow: 2px 2px 0 #0f3b1f; }
+    /* ملاحظة: استبدل رابط الصورة أعلاه برابط صورة الحاج علي إن أردت */
+
+    .header-text {
+      text-align: center;
+    }
+    .header-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 0 #0f3b1f;
+    }
     .header-text .dua {
       font-size: 1.6rem;
       margin-top: 15px;
@@ -54,12 +76,16 @@
       display: inline-block;
       border: 1px solid #f5d742;
     }
+
+    /* هيكل العمودين */
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 30px;
       margin-top: 20px;
     }
+
+    /* العمود الرئيسي */
     .quran-col {
       background: #ffffffde;
       backdrop-filter: blur(2px);
@@ -68,6 +94,7 @@
       box-shadow: 0 20px 35px -8px rgba(0,60,0,0.3);
       border: 1px solid #b3d9b3;
     }
+
     .quran-header {
       display: flex;
       flex-wrap: wrap;
@@ -77,7 +104,11 @@
       padding-bottom: 20px;
       margin-bottom: 25px;
     }
-    .quran-header h3 { font-size: 2.2rem; color: #1d5434; font-weight: 800; }
+    .quran-header h3 {
+      font-size: 2.2rem;
+      color: #1d5434;
+      font-weight: 800;
+    }
     .qari-selector {
       background: #ecfae9;
       border-radius: 40px;
@@ -95,6 +126,8 @@
       outline: none;
       cursor: pointer;
     }
+
+    /* أزرار السور */
     .sura-list {
       display: flex;
       flex-wrap: wrap;
@@ -122,6 +155,8 @@
       border-color: #f3c26b;
       transform: translateY(-3px);
     }
+
+    /* مشغل الصوت */
     .player-box {
       background: #1a3b28;
       padding: 25px;
@@ -151,6 +186,27 @@
       display: inline-block;
       margin-top: 10px;
     }
+
+    /* نص السورة */
+    .sura-text-box {
+      margin-top: 30px;
+      background: #f1f9ea;
+      padding: 20px;
+      border-radius: 30px;
+    }
+    .sura-text-box h4 {
+      color: #2b6e44;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    #suraDisplay {
+      font-family: 'Amiri', serif;
+      font-size: 1.6rem;
+      line-height: 2;
+      color: #153d23;
+    }
+
+    /* الشريط الجانبي */
     .sidebar {
       background: #f4fef0;
       border-radius: 40px 10px 40px 10px;
@@ -159,6 +215,7 @@
       border: 1px solid #b6d9b6;
       align-self: start;
     }
+
     .section-title {
       font-size: 2rem;
       font-weight: 700;
@@ -167,7 +224,10 @@
       border-right: 10px solid #d4a137;
       padding-right: 15px;
     }
-    .section-title:first-of-type { margin-top: 10px; }
+    .section-title:first-of-type {
+      margin-top: 10px;
+    }
+
     .adhkar-card {
       background: white;
       border-radius: 30px 8px 30px 8px;
@@ -195,6 +255,7 @@
       padding-top: 8px;
       text-align: left;
     }
+
     .dua-item {
       background: #fef7e7;
       padding: 15px;
@@ -203,6 +264,7 @@
       font-size: 1.3rem;
       border-right: 6px solid #bb8f4f;
     }
+
     footer {
       text-align: center;
       margin-top: 60px;
@@ -212,7 +274,10 @@
       border-radius: 60px 60px 0 0;
       font-size: 1.2rem;
     }
-    footer i { color: #f3c36b; }
+    footer i {
+      color: #f3c36b;
+    }
+
     @media (max-width: 900px) {
       .content-grid { grid-template-columns: 1fr; }
       .header-text h1 { font-size: 2.2rem; }
@@ -235,9 +300,9 @@
     </div>
   </div>
 
-  <!-- المحتوى الرئيسي: عمودان -->
+  <!-- المحتوى الرئيسي -->
   <div class="content-grid">
-    <!-- العمود الأيمن للقرآن والمشغل -->
+    <!-- العمود الأيمن للقرآن -->
     <div class="quran-col">
       <div class="quran-header">
         <h3><i class="fas fa-quran" style="margin-left: 10px; color: #2a9d8f;"></i> القران الكريم</h3>
@@ -252,7 +317,7 @@
         </div>
       </div>
 
-      <!-- قائمة السور -->
+      <!-- أزرار السور -->
       <div class="sura-list" id="suraList"></div>
 
       <!-- مشغل الصوت -->
@@ -266,9 +331,9 @@
       </div>
 
       <!-- نص السورة -->
-      <div style="margin-top: 30px; background: #f1f9ea; padding: 20px; border-radius: 30px;">
-        <h4 style="color: #2b6e44; font-size: 1.8rem;"><i class="fas fa-book-open"></i> آيات للقراءة</h4>
-        <div id="suraDisplay" style="font-family: 'Amiri'; font-size: 1.6rem; line-height: 2; color: #153d23;"></div>
+      <div class="sura-text-box">
+        <h4><i class="fas fa-book-open"></i> آيات للقراءة</h4>
+        <div id="suraDisplay"></div>
       </div>
     </div>
 
@@ -299,7 +364,7 @@
 
 <script>
 (function() {
-  // قائمة السور
+  // قائمة السور (يمكنك تعديلها)
   const surahList = [
     { id: 1, name: 'الفاتحة' },
     { id: 36, name: 'يس' },
@@ -311,7 +376,7 @@
     { id: 114, name: 'الناس' }
   ];
 
-  // عناصر DOM
+  // عناصر الصفحة
   const suraContainer = document.getElementById('suraList');
   const qariSelect = document.getElementById('qariSelect');
   const audioPlayer = document.getElementById('audioPlayer');
@@ -321,7 +386,7 @@
   let currentSura = 1;
   let currentSuraName = 'الفاتحة';
 
-  // دالة لإنشاء أزرار السور
+  // دالة إنشاء أزرار السور
   function renderSurahButtons() {
     suraContainer.innerHTML = '';
     surahList.forEach(s => {
@@ -344,28 +409,24 @@
 
   // تحديث مصدر الصوت بناءً على القارئ ورقم السورة
   function updateAudioSource() {
-    const qari = qariSelect.value; // قيمة القارئ
-    const sura = currentSura;
-    // رابط mp3quran.net الموثوق
-    let audioUrl = '';
-    if (qari === 'abdulbasit') {
-      audioUrl = `https://server8.mp3quran.net/abdulbasit/${sura.toString().padStart(3, '0')}.mp3`;
-    } else if (qari === 'husary') {
-      audioUrl = `https://server8.mp3quran.net/husary/${sura.toString().padStart(3, '0')}.mp3`;
-    } else if (qari === 'minshawi') {
-      audioUrl = `https://server8.mp3quran.net/minshawi/${sura.toString().padStart(3, '0')}.mp3`;
-    } else if (qari === 'maher') {
-      audioUrl = `https://server8.mp3quran.net/maher/${sura.toString().padStart(3, '0')}.mp3`;
-    } else if (qari === 'afasy') {
-      audioUrl = `https://server8.mp3quran.net/afasy/${sura.toString().padStart(3, '0')}.mp3`;
+    const qari = qariSelect.value;
+    const suraNumber = currentSura.toString().padStart(3, '0'); // 001, 036...
+    let baseUrl = '';
+    switch (qari) {
+      case 'abdulbasit': baseUrl = 'https://server8.mp3quran.net/abdulbasit/'; break;
+      case 'husary': baseUrl = 'https://server8.mp3quran.net/husary/'; break;
+      case 'minshawi': baseUrl = 'https://server8.mp3quran.net/minshawi/'; break;
+      case 'maher': baseUrl = 'https://server8.mp3quran.net/maher/'; break;
+      case 'afasy': baseUrl = 'https://server8.mp3quran.net/afasy/'; break;
+      default: baseUrl = 'https://server8.mp3quran.net/maher/';
     }
-    
+    const audioUrl = baseUrl + suraNumber + '.mp3';
     audioPlayer.src = audioUrl;
     audioPlayer.load();
     trackInfo.innerHTML = `السورة: ${currentSuraName} | القارئ: ${qariSelect.selectedOptions[0].text}`;
   }
 
-  // عرض نص السورة
+  // عرض نص السورة (بسيط للتوضيح)
   function updateSuraDisplay(suraId) {
     let text = '';
     if (suraId === 1) {
@@ -391,11 +452,13 @@
   updateAudioSource();
   updateSuraDisplay(1);
 
-  // تفعيل الزر الأول
+  // تفعيل زر الفاتحة
   document.querySelectorAll('.sura-btn').forEach(btn => {
     if (btn.dataset.id == 1) btn.classList.add('active');
   });
 })();
 </script>
+
+<!-- ملاحظة: الصورة الظاهرية مؤقتة، يمكنك استبدال رابط background-image بصورة الحاج علي إن أردت -->
 </body>
 </html>
